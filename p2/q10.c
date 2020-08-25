@@ -34,7 +34,6 @@ int     main(void)
     for (i = 0; i < n; i++)
         printf("%d", ar[i]);
     shuffle(ar, n);
-    putchar('\n');
     for (i = 0; i < n; i++)
         printf("%d", ar[i]);
     free(ar);
