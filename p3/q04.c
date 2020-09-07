@@ -1,22 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void    print_n(int a[], int n)
+void    print_n(int n)
 {
     int i;
     printf("   |");
     for (i = 0; i < n; i++)
-        printf(" %d",a[i]);
+        printf("  %d",i);
     putchar('\n');
     puts("------------------------------------");
 }
 
-void    printing(int a[], int pl, int pr, int pc, int n)
+void    printing(const int a[], int pl, int pr, int pc, int n)
 {
     int i;
     printf("   |");
     for (i = 0; i < n; i++)
-        //여기까지함
+    {
+        if (i == pl)
+            printf(" <-");
+        else if (i == pc)
+            printf("  +");
+        else if (i == pr)
+            printf(" ->");
+        else
+            printf("   ");
+    }
+    putchar('\n');
+    printf("  %d|",pc);
+    for (i = 0; i < n; i++)
+        printf("  %d",a[i]);
+    putchar('\n');
 }
 
 int     bin_search(const int a[], int n, int key)
@@ -24,7 +38,7 @@ int     bin_search(const int a[], int n, int key)
     int pl = 0;
     int pr = n - 1;
     int pc;
-    print_n(a, n);
+    print_n(n);
     do
     {
         pc = (pl + pr) / 2;
@@ -32,9 +46,9 @@ int     bin_search(const int a[], int n, int key)
         if (a[pc] == key)
             return pc;
         else if (a[pc] > key)
-            pl = pc + 1;
+            pr = pc - 1;
         else
-            pr = pc - 1; 
+            pl = pc + 1; 
     } while (pl <= pr);
     return -1;
 }
@@ -61,6 +75,7 @@ int     main(void)
     printf("검색값 : ");
     scanf("%d", &ky);
     idx = bin_search(x, nx, ky);
+    putchar('\n');
     if (idx == -1)
         puts("검색에 실패했습니다.");
     else
