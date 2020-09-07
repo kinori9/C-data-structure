@@ -58,6 +58,5 @@ int     main(void)
     else
         printf("%d(은)는 x[%d]에 있습니다.\n", ky, idx);
     free(x);
-
     return 0;
 }
