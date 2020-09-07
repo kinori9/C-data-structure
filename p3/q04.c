@@ -11,10 +11,12 @@ void    print_n(int a[], int n)
     puts("------------------------------------");
 }
 
-void    printing(int a[], int pl, int pr, int pc)
+void    printing(int a[], int pl, int pr, int pc, int n)
 {
+    int i;
     printf("   |");
-    
+    for (i = 0; i < n; i++)
+        //여기까지함
 }
 
 int     bin_search(const int a[], int n, int key)
@@ -26,7 +28,7 @@ int     bin_search(const int a[], int n, int key)
     do
     {
         pc = (pl + pr) / 2;
-        printing(a, pl, pr, pc);
+        printing(a, pl, pr, pc, n);
         if (a[pc] == key)
             return pc;
         else if (a[pc] > key)
