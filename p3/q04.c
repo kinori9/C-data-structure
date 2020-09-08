@@ -17,10 +17,10 @@ void    printing(const int a[], int pl, int pr, int pc, int n)
     printf("   |");
     for (i = 0; i < n; i++)
     {
-        if (i == pl)
-            printf(" <-");
-        else if (i == pc)
+        if (i == pc)
             printf("  +");
+        else if (i == pl)
+            printf(" <-");
         else if (i == pr)
             printf(" ->");
         else
