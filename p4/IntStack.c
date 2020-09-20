@@ -29,7 +29,7 @@ int     Pop(IntStack *s, int *x)
 {
     if(s->ptr <= 0)// 스택이 비어있음
         return -1;
-    *x = s->stk[s->ptr--]; // ptr이 있는 위치가 현재 스택정보량
+    *x = s->stk[--s->ptr]; // ptr이 있는 위치가 현재 스택정보량
     return 0;
 }
 
@@ -76,7 +76,7 @@ int     IsFull(const IntStack *s)
 int     Search(const IntStack *s, int x)
 {
     int i;
-    for (i = 0; i < s->stk - 1; i++)
+    for (i = s->ptr - 1; i >= 0; i++)
         if (s->stk[i] == x)
             return i;
     return -1;
