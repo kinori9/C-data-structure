@@ -5,7 +5,7 @@ int		main(void)
 {
 	ArrayIntQueue que;
 	initialize(&que, 12);
-
+	
 	while (1)
 	{
 		int menu, x;
